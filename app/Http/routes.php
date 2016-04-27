@@ -28,3 +28,4 @@ post('/store', 		['as' => 'post.store', 	'uses' => 'PostController@store']);
 //get('post/{post}', 	['as' => 'post.show', 	'uses' => 'Postcontroller@show']);
 //get('post/{post}/edit', 		['as' => 'post.dit', 	'uses' => 'Postcontroller@edit']);
 //post('post/{post}', 			['as' => 'post.update', 'uses' => 'Postcontroller@update']);
+get('/all_users',			['as' => 'user.show', 'uses' => 'GetUser@show']);

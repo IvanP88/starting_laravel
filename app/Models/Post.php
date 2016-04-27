@@ -2,15 +2,16 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use DB;
 
 class Post extends Model {
     protected $post = 'posts';
     public function getPublishedPosts()
     {
-        $posts1 = $this->latest('created_at')
+        $posts = Post::latest('created_at')
             ->published() // get function scopePublished
             ->get();
-        return $posts1;
+        return $posts;
     }
     public function scopePublished($query)
     {
@@ -31,12 +32,16 @@ class Post extends Model {
     }
     public function postSave($post)
     {
-        dd($post);
+//        dd($post);
         $post->save();
     }
 //    public function getNumber()
 //    {
 //        return 1000;
 //    }
-
+    public function getAllUsers()
+    {
+        $users = DB::table('users')->lists('name'); //Query bilder
+        return $users;
+    }
 }
